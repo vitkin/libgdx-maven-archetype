@@ -26,7 +26,7 @@ Creating a project using the archetype is accomplished like so:
     -DarchetypeRepository=$HOME/.m2/repository \
     -DarchetypeGroupId=com.badlogic.gdx \
     -DarchetypeArtifactId=gdx-archetype \
-    -DarchetypeVersion=0.9.9
+    -DarchetypeVersion=1.0-SNAPSHOT
 ```
 
 This will then ask you a few questions:
@@ -65,52 +65,87 @@ You can build and run your game using the Desktop backend like this:
 
 ```
 % cd mygame
-% mvn integration-test -Pdesktop
+% mvn test -Pdesktop,run
 ```
 
 This is pretty simple. It builds the Java code, and then unpacks some native libraries into the
 right place and then runs the code.
+
+#### Note:
+
+You may debug your game just like this:
+
+```
+% cd mygame
+% mvnDebug test -Pdesktop,run
+```
+
+Or if you use NetBeans, you may create a custom action that builds and runs as described upper
+and add the property "-Djpda.listen=maven" (Or choose "Add > Debug Maven build").
+
 
 You can also build a single jar file version of your game that you can send to friends or do
 whatever you like with:
 
 ```
 % cd mygame
-% mvn package -Pdesktop
+% mvn package -Pdesktop,distribution
 % java -jar desktop/target/mygame-desktop-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-### Build and run the HTML backend
+### Build and run the GWT backend
 
-You can build and run your game using the HTML backend like this:
+You can build and run your game using the GWT backend like this:
 
 ```
 % cd mygame
-% mvn integration-test -Phtml
+% mvn integration-test -Pgwt,run
 ```
 
 This compiles the game using GWT and then runs a local web server that serves up the compiled game
-on `http://localhost:8080`. Point a web browser at that URL to test your HTML compiled game.
+on `http://localhost:8080`. Point a web browser at that URL to test your GWT compiled game.
 
-You can also just build the HTML version of the game so that you can copy it to a website or
+You may also use the GWT SuperDev mode:
+
+```
+% cd mygame
+% mvn integration-test -Pgwt,run,dev
+```
+
+
+You can also just build the GWT version of the game so that you can copy it to a website or
 whatever. This is done like so:
 
 ```
 % cd mygame
-% mvn package -Phtml
+% mvn package -Pgwt
 ```
 
-This will generate your game in `html/target/webapp`. The important files and directories in that
+This will generate your game in `gwt/target/webapp`. The important files and directories in that
 directory are: `assets`, `index.html` and `mygame`. The other cruft (`META-INF` and `WEB-INF`) you
 can ignore, unless you want to deploy your game as a webapp to somewhere like Google App Engine.
 
 ### Build and run the Android backend
 
+You can update the AndroidManifest.xml like this:
+
+```
+% cd mygame
+% mvn initialize -Pandroid,updateManifest
+```
+
+You can create a test APK like this:
+
+```
+% cd mygame
+% mvn package -Pandroid
+```
+
 You can build your game using the Android backend and install it to a device like this:
 
 ```
 % cd mygame
-% mvn install -Pandroid
+% mvn verify -Pandroid,deploy
 ```
 
 You can also easily build a signed and zipaligned APK for your Android game when you are preparing
@@ -126,22 +161,39 @@ you can build a signed and zipaligned APK like so:
 
 ```
 % cd mygame
-% mvn package -Pandroid -Psign -Dkeystore.password=foo
+% mvn package -Pandroid,distribution -Dkeystore.password=foo
 ```
 
 The signed and aligned APK file will be in `android/target/mygame-android-aligned.apk`.
 
 ### Build and run the iOS backend
 
-This assumes you have [Xamarin.iOS] installed, as that is currently required to build your game for
+This assumes you have followed the [requirements] for [RoboVM], as that is currently required to build your game for
 iOS.
 
-Building the iOS backend is currently TBD. Check back later!
+You can build your game using the iOS backend and install it to a device like this:
+
+```
+% cd mygame
+% mvn verify -Pios,deploy -Dios.target=iphone-sim
+```
+
+#### Note:
+
+The possible values for 'ios.target' are:
+- create-ipa
+- iphone-sim
+- ipad-sim
+- ios-device
+
+You don't need to specify the system property "ios.target" if the target is "ios-device".
+
 
 ## Credits
 
 Much of this archetype was adapted from [PlayN's archetype].
 
 [libGDX]: http://libgdx.badlogicgames.com/
-[Xamarin.iOS]: http://www.xamarin.com/
+[RoboVM]: http://www.robovm.com/
+[requirements]: http://www.robovm.com/docs#requirements
 [PlayN's archetype]: https://github.com/threerings/playn/tree/master/archetype

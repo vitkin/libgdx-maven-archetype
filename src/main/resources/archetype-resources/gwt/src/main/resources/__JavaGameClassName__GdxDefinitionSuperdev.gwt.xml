@@ -1,0 +1,17 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit trunk//EN" "http://google-web-toolkit.googlecode.com/svn/trunk/distro-source/core/src/gwt-module.dtd">
+<module rename-to="${rootArtifactId}">
+  <inherits name="com.badlogic.gdx.backends.gdx_backends_gwt" />
+  <inherits name="${package}.core.${JavaGameClassName}" />
+  <entry-point class="${package}.client.${JavaGameClassName}Gwt" />
+
+  <add-linker name="xsiframe"/>
+  <set-configuration-property name="xsiframe.failIfScriptTag" value="FALSE"/>
+  <set-configuration-property name="devModeRedirectEnabled" value="true"/>
+
+  <set-configuration-property name="gdx.assetpath" value="assets" />
+  <set-configuration-property name="gdx.assetoutputpath" value="gwt/target/webapp" />
+</module>
