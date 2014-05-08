@@ -22,8 +22,8 @@
       </plugin>
     </plugins>
   </build>
-  
-  <profiles>           
+
+  <profiles>
     <profile>
       <id>updateProperties</id>
       <build>
@@ -40,7 +40,7 @@
                 </goals>
               </execution>
             </executions>
-            <configuration>   
+            <configuration>
               <target>
                 <property name="app.version" value="${project.version}"/>
                 <property name="app.id" value="${exec.mainClass}"/>
@@ -48,13 +48,13 @@
                 <property name="app.executable" value="${JavaGameClassName}Delegate"/>
                 <property name="app.build" value="1"/>
                 <property name="app.basedir" value="${project.basedir}"/>
-    
-                
+
+
                 Maven Bug MNG-4130 "${project.parent.name} expression returns empty."
-                
+
                 <property name="app.name" value="${JavaGameClassName}"/>
 
-                <echoproperties destfile="${project.basedir}/src/main/robovm/robovm.properties" 
+                <echoproperties destfile="${project.basedir}/src/main/robovm/robovm.properties"
                                 prefix="app"/>
               </target>
             </configuration>
@@ -79,7 +79,7 @@
         </plugins>
       </build>
     </profile>
-          
+
     <profile>
       <id>deploy</id>
       <build>
@@ -102,7 +102,7 @@
               <separateDirs>true</separateDirs>
             </configuration>
           </plugin>
-          
+
           <plugin>
             <groupId>org.robovm</groupId>
             <artifactId>robovm-maven-plugin</artifactId>
@@ -131,20 +131,19 @@
       <artifactId>${rootArtifactId}-core</artifactId>
       <version>${project.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-backend-robovm</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-platform</artifactId>
       <classifier>natives-ios</classifier>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
-  
+
   <properties>
     <ios.target>ios-device</ios.target>
     <exec.mainClass>${package}.ios.${JavaGameClassName}Delegate</exec.mainClass>

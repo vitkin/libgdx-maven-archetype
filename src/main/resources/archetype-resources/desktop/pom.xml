@@ -24,22 +24,22 @@
     <profile>
       <id>run</id>
       <build>
-    <plugins>
-      <plugin>
+        <plugins>
+          <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
-        <executions>
-          <execution>
+            <executions>
+              <execution>
                 <phase>test</phase>
-            <goals>
+                <goals>
                   <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
               <classpathScope>test</classpathScope>
             </configuration>
-      </plugin>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -48,17 +48,17 @@
       <id>attach-sources</id>
       <build>
         <plugins>
-      <plugin>
+          <plugin>
             <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
+            <executions>
+              <execution>
                 <id>attach-sources</id>
-            <goals>
+                <goals>
                   <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -68,30 +68,30 @@
       <id>distribution</id>
       <build>
         <plugins>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <archive>
-            <manifest>
-              <mainClass>${exec.mainClass}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>make-assembly</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+              <archive>
+                <manifest>
+                  <mainClass>${exec.mainClass}</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 

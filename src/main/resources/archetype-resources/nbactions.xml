@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+  <action>
+    <actionName>CUSTOM-Android update manifest</actionName>
+    <displayName>Android update manifest</displayName>
+    <goals>
+      <goal>initialize</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>android</activatedProfile>
+      <activatedProfile>updateManifest</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Android clean</actionName>
+    <displayName>Android clean</displayName>
+    <goals>
+      <goal>clean</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>android</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Android build</actionName>
+    <displayName>Android build</displayName>
+    <goals>
+      <goal>package</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>android</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Android distribution</actionName>
+    <displayName>Android distribution</displayName>
+    <goals>
+      <goal>package</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>android</activatedProfile>
+      <activatedProfile>distribution</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Android deploy</actionName>
+    <displayName>Android deploy</displayName>
+    <goals>
+      <goal>verify</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>android</activatedProfile>
+      <activatedProfile>deploy</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Desktop clean</actionName>
+    <displayName>Desktop clean</displayName>
+    <goals>
+      <goal>clean</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>desktop</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Desktop build</actionName>
+    <displayName>Desktop build</displayName>
+    <goals>
+      <goal>package</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>desktop</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Desktop run</actionName>
+    <displayName>Desktop run</displayName>
+    <packagings>
+      <packaging>jar</packaging>
+    </packagings>
+    <goals>
+      <goal>test</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>desktop</activatedProfile>
+      <activatedProfile>run</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-Desktop debug</actionName>
+    <displayName>Desktop debug</displayName>
+    <packagings>
+      <packaging>jar</packaging>
+    </packagings>
+    <goals>
+      <goal>test</goal>
+    </goals>
+    <properties>
+      <jpda.listen>maven</jpda.listen>
+    </properties>
+    <activatedProfiles>
+      <activatedProfile>desktop</activatedProfile>
+      <activatedProfile>run</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-GWT clean</actionName>
+    <displayName>GWT clean</displayName>
+    <goals>
+      <goal>clean</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>gwt</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-GWT build</actionName>
+    <displayName>GWT build</displayName>
+    <goals>
+      <goal>package</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>gwt</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-GWT run</actionName>
+    <displayName>GWT run</displayName>
+    <goals>
+      <goal>integration-test</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>gwt</activatedProfile>
+      <activatedProfile>run</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-GWT run dev</actionName>
+    <displayName>GWT run dev</displayName>
+    <goals>
+      <goal>integration-test</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>gwt</activatedProfile>
+      <activatedProfile>run</activatedProfile>
+      <activatedProfile>dev</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS clean</actionName>
+    <displayName>IOS clean</displayName>
+    <goals>
+      <goal>clean</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS build</actionName>
+    <displayName>IOS build</displayName>
+    <goals>
+      <goal>package</goal>
+    </goals>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS create ipa</actionName>
+    <displayName>IOS create ipa</displayName>
+    <goals>
+      <goal>verify</goal>
+    </goals>
+    <properties>
+      <ios.target>create-ipa</ios.target>
+    </properties>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+      <activatedProfile>deploy</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS deploy to iphone-sim</actionName>
+    <displayName>IOS deploy to iphone-sim</displayName>
+    <goals>
+      <goal>verify</goal>
+    </goals>
+    <properties>
+      <ios.target>iphone-sim</ios.target>
+    </properties>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+      <activatedProfile>deploy</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS deploy to ipad-sim</actionName>
+    <displayName>IOS deploy to ipad-sim</displayName>
+    <goals>
+      <goal>verify</goal>
+    </goals>
+    <properties>
+      <ios.target>ipad-sim</ios.target>
+    </properties>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+      <activatedProfile>deploy</activatedProfile>
+    </activatedProfiles>
+  </action>
+  <action>
+    <actionName>CUSTOM-IOS deploy to ios-device</actionName>
+    <displayName>IOS deploy to ios-device</displayName>
+    <goals>
+      <goal>verify</goal>
+    </goals>
+    <properties>
+      <ios.target>ios-device</ios.target>
+    </properties>
+    <activatedProfiles>
+      <activatedProfile>ios</activatedProfile>
+      <activatedProfile>deploy</activatedProfile>
+    </activatedProfiles>
+  </action>
+</actions>

@@ -27,7 +27,7 @@
           </filesets>
         </configuration>
       </plugin>
-      
+
       <!-- responsible for unpacking the shared libraries to the libs/ folder -->
       <plugin>
         <groupId>com.googlecode.mavennatives</groupId>
@@ -180,7 +180,7 @@
       </build>
     </profile>
   </profiles>
-  
+
   <dependencies>
     <dependency>
       <groupId>${groupId}</groupId>
@@ -197,30 +197,26 @@
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-platform</artifactId>
       <classifier>natives-armeabi</classifier>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-platform</artifactId>
       <classifier>natives-armeabi-v7a</classifier>
-      <scope>provided</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>com.badlogicgames.gdx</groupId>
       <artifactId>gdx-platform</artifactId>
       <classifier>natives-x86</classifier>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.google.android</groupId>
       <artifactId>android</artifactId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
-  
+
   <properties>
     <keystore.path>game.keystore</keystore.path>
     <keystore.alias>game</keystore.alias>
